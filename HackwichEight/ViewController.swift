@@ -8,14 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+  
+   
+    
     //create a target label for the number to randomly change for the guessing game
     @IBOutlet weak var targetLabel: UILabel!
     //when the slider is moved the player is guessing as close or exactly the same randomly changed number.
     @IBOutlet weak var slider: UISlider!
     
-    //on the slider we needed to give value to the movement of the slider
+        //on the slider we needed to give value to the movement of the slider
     var currentValue = 50
     var targetValue = 0
+    
     
     
     override func viewDidLoad() {
@@ -26,6 +30,10 @@ class ViewController: UIViewController {
         //targetValue = Int.random(in: 0...100)
         //call startNewRound
         startNewRound()
+        
+        //set image to slider
+        let thumbImageNormal = UIImage(named: "SliderThumb-Normal")
+        slider.setThumbImage(thumbImageNormal, for: .normal)
     }
     
     @IBAction func sliderHasMoved(_ sender: Any) {
@@ -43,6 +51,8 @@ class ViewController: UIViewController {
          let randomNumber = Int.random(in: 0...100)
         //this target number or random number should be close to my guess or exactly same to my guess
         targetLabel.text = String(randomNumber)
+            targetValue = Int.random(in: 0...100)
+            
     
     }
     
